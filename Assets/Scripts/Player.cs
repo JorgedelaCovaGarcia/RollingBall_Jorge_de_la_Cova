@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float fuerzaSalto;
     Rigidbody rb;
+    Vector3 miVector = new Vector3 (0, 1, 0);
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,6 +26,6 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, 1, 0) * fuerzaSalto, ForceMode.Impulse);
         }
-        rb.AddForce(new Vector3(h, 0, 0 * fuerzaSalto, ForceMode.Force));
+        rb.AddForce(new Vector3 (h, 0, 0) * fuerzaSalto, ForceMode.Force);
     }
 }
