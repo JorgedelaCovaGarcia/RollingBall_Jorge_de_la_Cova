@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float fuerzaSalto;
+    [SerializeField] float fuerza;
     Rigidbody rb;
     Vector3 miVector = new Vector3 (0, 1, 0);
     void Start()
@@ -24,8 +24,9 @@ public class Player : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown (KeyCode.Space))
         {
-            rb.AddForce(new Vector3(0, 1, 0) * fuerzaSalto, ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
         }
-        rb.AddForce(new Vector3 (h, 0, 0) * fuerzaSalto, ForceMode.Force);
+        rb.AddForce(new Vector3 (h, 0, 0) * fuerza, ForceMode.Force);
+        rb.AddForce(new Vector3(0, 0, v) * fuerza, ForceMode.Force);
     }
 }
