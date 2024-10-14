@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float fuerza;
+    [SerializeField] int distanciaRaycast;
     Rigidbody rb;
     Vector3 miVector = new Vector3 (0, 1, 0);
     void Start()
@@ -28,5 +29,12 @@ public class Player : MonoBehaviour
         }
         rb.AddForce(new Vector3 (h, 0, 0) * fuerza, ForceMode.Force);
         rb.AddForce(new Vector3(0, 0, v) * fuerza, ForceMode.Force);
+    }
+
+    private bool DetectaSuelo()
+    {
+        bool resultado = Physics.Raycast(transform.position, Vector3.down, distanciaRaycast);
+        Debug.DrawRay(transform.position, Vector3.down, Color.yellow, 2f);
+        return resultado;
     }
 }
