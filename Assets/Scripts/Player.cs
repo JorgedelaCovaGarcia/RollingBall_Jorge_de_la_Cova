@@ -37,4 +37,17 @@ public class Player : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.down, Color.yellow, 2f);
         return resultado;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Reset"))
+        {
+            Teleport();
+        }
+    }
+
+    private void Teleport()
+    {
+        transform.position = new Vector3 (-0.62f,16.03f,-1.45f);
+    }
 }
