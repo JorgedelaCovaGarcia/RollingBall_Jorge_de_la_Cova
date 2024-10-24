@@ -10,7 +10,7 @@ public class Rodillo : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddTorque(new Vector3(0, 45, 0) * fuerza, ForceMode.Impulse);
+        rb.AddTorque(new Vector3(0, 20, 0) * fuerza, ForceMode.Impulse);
     }
 
     // Update is called once per frame
