@@ -5,9 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float fuerza;
+    [SerializeField] float fuerzaSalto;
     [SerializeField] int distanciaRaycast;
     Rigidbody rb;
     Vector3 miVector = new Vector3 (0, 1, 0);
+
+    float h, v;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,16 +24,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        h = Input.GetAxisRaw("Horizontal");
+        v = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown (KeyCode.Space))
         {
-            rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, 1, 0) * fuerzaSalto, ForceMode.Impulse);
         }
+    }
+    void FixedUpdate()
+    {
         rb.AddForce(new Vector3 (h, 0, 0) * fuerza, ForceMode.Force);
         rb.AddForce(new Vector3(0, 0, v) * fuerza, ForceMode.Force);
-    }
 
+    }
     private bool DetectaSuelo()
     {
         bool resultado = Physics.Raycast(transform.position, Vector3.down, distanciaRaycast);
