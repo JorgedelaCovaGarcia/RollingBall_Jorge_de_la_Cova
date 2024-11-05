@@ -50,6 +50,10 @@ public class Player : MonoBehaviour
         {
             Teleport();
         }
+        else if (collision.gameObject.CompareTag("Reset2"))
+        {
+            Teleport2();
+        }
     }
 
     private void Teleport()
@@ -57,5 +61,8 @@ public class Player : MonoBehaviour
         transform.position = new Vector3 (-0.62f,16.03f,-1.45f);
     }
 
-
+    private void Teleport2()
+    {
+        transform.position = new Vector3(1.44f, 7.88f, 31.81f);
+    }
 }
