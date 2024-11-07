@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Plataforma : MonoBehaviour
 {
-    [SerializeField] float velocidad; 
-
-    float timer = 0f;
-    // Start is called before the first frame update
+    float timer = 0;
+    [SerializeField] int velocidad = 2;
+    [SerializeField] Vector3 direccion;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        transform.Translate(new Vector3(1, 0, 0) * velocidad);
-
+        transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
+        timer += Time.deltaTime;
+        if(timer >= 5)
+        {
+            direccion = -direccion;
+            timer = 0;
+        }
     }
 }

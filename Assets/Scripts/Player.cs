@@ -54,6 +54,14 @@ public class Player : MonoBehaviour
         {
             Teleport2();
         }
+        else if(collision.gameObject.CompareTag("Reset3"))
+        {
+            Teleport3();
+        } 
+        else if(collision.gameObject.CompareTag("Reset4"))
+        {
+            Teleport4();
+        }
     }
 
     private void Teleport()
@@ -64,5 +72,13 @@ public class Player : MonoBehaviour
     private void Teleport2()
     {
         transform.position = new Vector3(1.44f, 7.88f, 31.81f);
+    }
+    private void Teleport3()
+    {
+        transform.position = new Vector3(-0.55f, 7.05f, 14.41f);
+    }
+    private void Teleport4()
+    {
+        transform.position = new Vector3(-2.57f, 7.05f, 28.05f);
     }
 }

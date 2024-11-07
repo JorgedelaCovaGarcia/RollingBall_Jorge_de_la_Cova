@@ -7,6 +7,8 @@ TagManager:
   - Reset
   - SueloDestruir
   - Reset2
+  - Reset3
+  - Reset4
   layers:
   - Default
   - TransparentFX
